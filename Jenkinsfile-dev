@@ -39,9 +39,9 @@ pipeline {
         stage('docker Deploy') {
             steps{
                 sh 'chmod 400 serverkey.pem'
-                sh 'ssh -o StrictHostKeyChecking=no -i serverkey.pem ubuntu@54.197.197.130 sudo docker rm -f insighttellers-app'
-                sh 'ssh -o StrictHostKeyChecking=no -i serverkey.pem ubuntu@54.197.197.130 sudo docker run --name insighttellers-app --restart=always -p 80:80 -d $registry:app-$BUILD_NUMBER'
-                sh 'ssh -o StrictHostKeyChecking=no -i serverkey.pem ubuntu@54.197.197.130 sudo docker system prune -f'
+                sh 'ssh -o StrictHostKeyChecking=no -i serverkey.pem ubuntu@54.213.111.157 sudo docker rm -f insighttellers-app'
+                sh 'ssh -o StrictHostKeyChecking=no -i serverkey.pem ubuntu@54.213.111.157 sudo docker run --name insighttellers-app --restart=always -p 80:80 -d $registry:app-$BUILD_NUMBER'
+                sh 'ssh -o StrictHostKeyChecking=no -i serverkey.pem ubuntu@54.213.111.157 sudo docker system prune -f'
             }
         }
         stage('Workspace Cleanup') {
