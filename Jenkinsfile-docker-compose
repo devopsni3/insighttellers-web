@@ -38,7 +38,7 @@ pipeline {
         }
         stage('docker-compose Deploy') {
             steps{
-            sh 'ssh -o StrictHostKeyChecking=no -i serverkey.pem ubuntu@54.197.197.130 "export FRONTEND_TAG=app-$BUILD_NUMBER && cd /home/ubuntu/insighttellers-web-docker && docker rm -f insighttellers-web-docker_myapp_1 && docker-compose -f docker-compose.yml up -d"'
+            sh 'ssh -o StrictHostKeyChecking=no -i serverkey.pem ubuntu@54.213.111.157 "export FRONTEND_TAG=app-$BUILD_NUMBER && cd /home/ubuntu/insighttellers-web-docker && docker rm -f insighttellers-web-docker_myapp_1 && docker-compose -f docker-compose.yml up -d"'
             }
         }
         stage('Workspace Cleanup') {
